@@ -14,6 +14,13 @@ public class MyMenu {
     private final String title;
     private final String[] voices;
 
+    public int getVoicesLength() {
+        return voices.length;
+    }
+
+    public static int getFrameLength() {
+        return FRAME.length();
+    }
 
     public MyMenu(String titolo, String[] voci) {
         this.title = titolo;

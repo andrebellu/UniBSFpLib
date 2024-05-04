@@ -30,7 +30,7 @@ public class BelleStringhe
 	 return res.toString();
 	}
 	
- public static String centrata (String s, int larghezza)
+ public static String center (String s, int larghezza)
 	{
 	 StringBuffer res = new StringBuffer(larghezza);
 	 if (larghezza <= s.length())
