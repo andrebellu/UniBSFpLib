@@ -8,6 +8,7 @@ public class Input {
     private final static String FORMAT_ERROR = "Warning: the entered value is not valid. Please try again.";
     private final static String MIN_ERROR = "Warning: the value must be greater than or equal to ";
     private final static String EMPTY_STRING_ERROR = "Warning: the entered string is empty. Please try again.";
+    private final static String BLANK_STRING_ERROR = "Warning: the entered string is blank. Please try again.";
     private final static String MAX_ERROR = "Warning: the value must be less than or equal to ";
     private final static String ALLOWED_MESSAGE = "Warning: the allowed values are ";
 
@@ -21,7 +22,13 @@ public class Input {
 
     public static String readString(String message) {
         System.out.print(message);
-        return scanner.next();
+        String line = scanner.nextLine();
+        if (line.isEmpty() || line.isBlank()) {
+            String messageError = line.isEmpty() ? EMPTY_STRING_ERROR : BLANK_STRING_ERROR;
+            System.out.println(messageError);
+            return readString(message);
+        }
+        return line;
     }
 
     public static String readNotEmptyString(String message) {
@@ -81,7 +88,7 @@ public class Input {
                 stop = true;
             } catch (InputMismatchException e) {
                 System.out.println(FORMAT_ERROR);
-                // String daButtare = InputDati.scanner.next();
+                scanner.nextLine();
             }
         } while (!stop);
         return value;
@@ -114,12 +121,7 @@ public class Input {
         boolean stop = false;
         int value = 0;
         do {
-            try {
-                value = readInt(message);
-            } catch (InputMismatchException e) {
-                System.out.println(FORMAT_ERROR);
-                continue;
-            }
+            value = readInt(message);
             if (value >= minimo && value <= massimo)
                 stop = true;
             else if (value < minimo)

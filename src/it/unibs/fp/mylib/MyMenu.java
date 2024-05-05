@@ -7,7 +7,7 @@ e sia presentata in fondo al menu
 */
 
 public class MyMenu {
-    final private static String FRAME = "██████████████████████████████";
+    final private static String FRAME = "████████████████████████████████████████████████████████████";
     final private static String EXIT = "0\tExit";
     final private static String CHOICE_MESSAGE = "Enter your choice: ";
 
