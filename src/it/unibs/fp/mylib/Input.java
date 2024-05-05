@@ -114,7 +114,12 @@ public class Input {
         boolean stop = false;
         int value = 0;
         do {
-            value = readInt(message);
+            try {
+                value = readInt(message);
+            } catch (InputMismatchException e) {
+                System.out.println(FORMAT_ERROR);
+                continue;
+            }
             if (value >= minimo && value <= massimo)
                 stop = true;
             else if (value < minimo)
