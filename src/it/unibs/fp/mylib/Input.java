@@ -1,5 +1,6 @@
 package it.unibs.fp.mylib;
 
+import java.time.LocalDate;
 import java.util.*;
 
 public class Input {
@@ -20,31 +21,31 @@ public class Input {
         return new Scanner(System.in);
     }
 
-    public static String readString(String message) {
+    public static String readNotEmptyString(String message) {
         System.out.print(message);
         String line = scanner.nextLine();
         if (line.isEmpty() || line.isBlank()) {
             String messageError = line.isEmpty() ? EMPTY_STRING_ERROR : BLANK_STRING_ERROR;
             System.out.println(messageError);
-            return readString(message);
+            return readNotEmptyString(message);
         }
         return line;
     }
 
-    public static String readNotEmptyString(String message) {
-        boolean stop = false;
-        String string = null;
-        do {
-            string = readString(message);
-            string = string.trim();
-            if (!string.isEmpty())
-                stop = true;
-            else
-                System.out.println(EMPTY_STRING_ERROR);
-        } while (!stop);
-
-        return string;
-    }
+//    public static String readNotEmptyString(String message) {
+//        boolean stop = false;
+//        String string = null;
+//        do {
+//            string = readNotEmptyString(message);
+//            string = string.trim();
+//            if (!string.isEmpty())
+//                stop = true;
+//            else
+//                System.out.println(EMPTY_STRING_ERROR);
+//        } while (!stop);
+//
+//        return string;
+//    }
 
     public static char readChar(String message) {
         boolean stop = false;
@@ -171,5 +172,4 @@ public class Input {
 
         return value == YES;
     }
-
 }

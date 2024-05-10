@@ -1,5 +1,5 @@
 package it.unibs.fp.mylib;
-public class BelleStringhe
+public class Strings
 {
 
  private final static String SPAZIO = " ";
