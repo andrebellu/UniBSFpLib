@@ -13,7 +13,7 @@ public class Strings
 	 StringBuffer res = new StringBuffer();
 		
 	 res.append(CORNICE+ACAPO);
-	 res.append(s+ACAPO);
+	 res.append(s).append(ACAPO);
 	 res.append(CORNICE+ACAPO);
 
  	 return res.toString();
@@ -64,16 +64,26 @@ public class Strings
 
 	public static String rigaIsolata(String daIsolare)
 	 {
-		 StringBuffer result = new StringBuffer();
-		 result.append(ACAPO);
-		 result.append(daIsolare);
-		 result.append(ACAPO);
-		 return result.toString();
+         return ACAPO +
+                 daIsolare +
+                 ACAPO;
 	 }
 
-	 public static String capitalize(String s) {
-		 return s.substring(0, 1).toUpperCase() + s.substring(1);
-	 }
- 
+	public static String capitalize(String name) {
+		String[] words = name.split("\\s");
+
+		StringBuilder capitalizedName = new StringBuilder();
+		for (int i = 0; i < words.length; i++) {
+			capitalizedName.append(words[i].substring(0, 1).toUpperCase())
+					.append(words[i].substring(1).toLowerCase());
+			if (i < words.length - 1) {
+				capitalizedName.append(" ");
+			}
+		}
+
+		return capitalizedName.toString();
+	}
+
+
 }
 
