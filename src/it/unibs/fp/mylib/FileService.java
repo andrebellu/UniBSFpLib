@@ -25,15 +25,11 @@ public class FileService
 			{
 			 System.out.println(MSG_NO_FILE + f.getName() );
 			}
-		 catch (IOException excLettura)
+		 catch (IOException | ClassNotFoundException excLettura)
 			{
 			 System.out.println(MSG_NO_READ + f.getName() );
 			}
-		 catch (ClassNotFoundException excLettura)
-			{
-			 System.out.println(MSG_NO_READ + f.getName() );
-			}
-  	 finally
+		 finally
 			{
 			 if (input != null)
 				{

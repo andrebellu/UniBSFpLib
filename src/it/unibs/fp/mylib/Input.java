@@ -1,6 +1,7 @@
 package it.unibs.fp.mylib;
 
-import java.util.*;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Input {
     private static final Scanner scanner = creaScanner();
@@ -170,5 +171,10 @@ public class Input {
         char value = readUpperChar(messageYesNo, String.valueOf(YES) + String.valueOf(NO));
 
         return value == YES;
+    }
+
+    public static String readString(String s) {
+        System.out.print(s);
+        return scanner.nextLine();
     }
 }
