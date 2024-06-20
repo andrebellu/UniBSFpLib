@@ -3,49 +3,6 @@ package it.unibs.fp.mylib;
 import java.io.*;
 
 
-<<<<<<< HEAD
-public class FileService
-{
-	private final static String MSG_NO_FILE = "ATTENZIONE: NON TROVO IL FILE ";
-	private final static String MSG_NO_READ = "ATTENZIONE: PROBLEMI CON LA LETTURA DEL FILE ";
-	private final static String MSG_NO_WRITE = "ATTENZIONE: PROBLEMI CON LA SCRITTURA DEL FILE ";
-	private final static String MSG_NO_CLOSE ="ATTENZIONE: PROBLEMI CON LA CHIUSURA DEL FILE ";
-  	
-	public static Object loadSingleObject (File f)
-	 {
-		 Object read = null;
-		 ObjectInputStream input = null;
-			
-		 try
-			{
-			 input = new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
-				
-			 read = input.readObject();
-				
-			}
-		 catch (FileNotFoundException excNotFound)
-			{
-			 System.out.println(MSG_NO_FILE + f.getName() );
-			}
-		 catch (IOException | ClassNotFoundException excLettura)
-			{
-			 System.out.println(MSG_NO_READ + f.getName() );
-			}
-		 finally
-			{
-			 if (input != null)
-				{
-				 try 
-					{
-				   input.close();
-					}
-				 catch (IOException excChiusura)
-					{
-			 			System.out.println(MSG_NO_CLOSE + f.getName() );
-					}
-				}
-			} // finally
-=======
 public class FileService {
     private final static String MSG_NO_FILE = "ATTENZIONE: NON TROVO IL FILE ";
     private final static String MSG_NO_READ = "ATTENZIONE: PROBLEMI CON LA LETTURA DEL FILE ";
@@ -63,9 +20,7 @@ public class FileService {
 
         } catch (FileNotFoundException excNotFound) {
             System.out.println(MSG_NO_FILE + f.getName());
-        } catch (IOException excLettura) {
-            System.out.println(MSG_NO_READ + f.getName());
-        } catch (ClassNotFoundException excLettura) {
+        } catch (IOException | ClassNotFoundException excLettura) {
             System.out.println(MSG_NO_READ + f.getName());
         } finally {
             if (input != null) {
@@ -103,8 +58,6 @@ public class FileService {
         } // finally
 
     } // metodo salvaSingoloOggetto
->>>>>>> a3ad8f5a2a6c8de82f573974df28666f55844749
 
 
 }
-
